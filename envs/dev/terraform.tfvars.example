@@ -1,0 +1,20 @@
+# Copy to terraform.tfvars and adjust.
+
+aws_region  = "us-east-1"
+project     = "demo"
+environment = "dev"
+
+iam_users = {
+  "vijay" = { groups = ["admins"] }
+  "anand"   = { groups = ["developers"] }
+}
+
+create_ec2         = true
+ec2_instance_type  = "t3.micro"
+http_allowed_cidrs = ["0.0.0.0/0"]
+
+# EKS + NAT gateway cost money; enable only when needed.
+enable_eks              = false
+eks_version             = "1.33"
+eks_node_instance_types = ["t3.medium"]
+# eks_admin_principal_arns = ["arn:aws:iam::123456789012:user/demo-dev/vijay"]
